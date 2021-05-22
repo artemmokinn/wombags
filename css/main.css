@@ -15,9 +15,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 50px;
   max-width: 1170px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
 .section-title {
@@ -27,8 +27,8 @@
 
 .header {
   background-color: #edd81e;
-  height: 80px;
-  padding-top: 20px;
+  height: 60px;
+  padding-top: 40px;
   position: fixed;
   width: 100%;
 }
@@ -46,11 +46,7 @@
   width: 180px;
 }
 
-.header .header-logo .header-logo-image .header-logo-image-icon {
-  width: 50px;
-}
-
-.header .header-logo .header-logo-text .header-logo-text-paragraph {
+.header .header-logo .header-logo-text {
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
@@ -192,10 +188,6 @@
   text-decoration: underline;
 }
 
-.header .header-card .header-card-icon {
-  width: 50px;
-}
-
 .offer {
   margin-bottom: 100px;
   padding-top: 150px;
@@ -221,12 +213,16 @@
   width: 380px;
   height: 60px;
   background-color: #000;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
   border: none;
   border-radius: 100px;
   outline: none;
+}
+
+.offer .offer-text .offer-text-button .offer-text-button-link {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .offer .offer-text .offer-text-button:hover {
@@ -373,51 +369,20 @@
 }
 
 .footer {
-  height: 320px;
+  height: 200px;
   background-color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.footer .footer-logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 180px;
-  margin-right: 84px;
-}
-
-.footer .footer-logo .footer-logo-image .footer-logo-image-img {
-  width: 50px;
-  height: 50px;
-}
-
-.footer .footer-logo .footer-logo-text {
+.footer .footer-text {
+  font-size: 16px;
   color: #fff;
-}
-
-.footer .footer-logo .footer-logo-text .footer-logo-text-paragraph {
-  font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.footer .footer-phone {
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
+  float: left;
 }
 
 @media (max-width: 1000px) {
@@ -447,25 +412,16 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 160px;
   }
-  .header .header-logo .header-logo-image {
-    display: none;
-  }
-  .header .header-logo .header-logo-image .header-logo-image-icon {
-    width: 50px;
-  }
-  .header .header-logo .header-logo-text .header-logo-text-paragraph {
+  .header .header-logo .header-logo-text {
     font-size: 15px;
     font-weight: bold;
     text-transform: uppercase;
+    float: left;
   }
   .header .menu {
-    position: -webkit-sticky;
-    position: sticky;
     top: 0px;
     padding: 30px 0px 30px 0px;
-    width: 100%;
     background-color: #edd81e;
   }
   .header .menu #menu__toggle {
@@ -565,12 +521,6 @@
   }
   .header .menu .menu-list {
     display: none;
-  }
-  .header .header-phone {
-    display: none;
-  }
-  .header .header-card .header-card-icon {
-    width: 50px;
   }
   .offer {
     padding-top: 150px;
@@ -790,20 +740,122 @@
   .header {
     background-color: #edd81e;
     height: 80px;
+    padding-top: 20px;
     position: fixed;
     width: 100%;
+    padding: 0;
   }
   .header .header-logo {
     display: none;
   }
-  .header .header-menu {
+  .header .menu {
+    top: 0px;
+    padding: 30px 0px 30px 0px;
+    background-color: #edd81e;
+  }
+  .header .menu #menu__toggle {
+    opacity: 0;
+  }
+  .header .menu .menu__btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 25px;
+    left: 40px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .header .menu .menu__btn > span,
+  .header .menu .menu__btn > span::before,
+  .header .menu .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+  }
+  .header .menu .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .header .menu .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  .header .menu .menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+  }
+  .header .menu .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .header .menu .menu__item:hover {
+    background-color: #cfd8dc;
+  }
+  .header .menu #menu__toggle:checked ~ .menu__btn > span {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .header .menu #menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  .header .menu #menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .header .menu #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+  }
+  .header .menu .menu__btn > span,
+  .header .menu .menu__btn > span::before,
+  .header .menu .menu__btn > span::after {
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
+  }
+  .header .menu .menu__box {
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
+  }
+  .header .menu .menu__item {
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
+  }
+  .header .menu .menu-list {
     display: none;
   }
   .header .header-phone {
     display: none;
   }
   .header .header-card .header-card-icon {
-    width: 30px;
+    width: 50px;
   }
   .offer {
     padding-top: 150px;
